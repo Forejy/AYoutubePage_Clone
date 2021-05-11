@@ -1,0 +1,902 @@
+/* Noir : #1f1f1f
+Gris clair (texte) : #aaa
+Gris moins foncé (button) : #323232 
+Gris des barres horizontales*/
+
+
+/* //MARK: I. General */
+
+:root {
+  --main-gray: #181818;
+  --lightgray: #aaa;
+}
+
+html, button {
+  background-color: var(--main-gray);
+}
+
+.main-header {
+  background-color: hsla(0, 0%, 13%, .98);
+}
+
+.main-header button {
+  background-color: transparent;
+}
+
+html, input {
+  color: white;
+}
+
+/* //MARK: Reset */
+
+a, button {
+  color: inherit;
+}
+
+button {
+  border: none;
+}
+
+input, button, ul {
+  padding: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+label {
+  cursor: inherit;
+}
+
+ul { /*  reset ul for navbar */
+  list-style: none;
+  display: flex;
+}
+
+body, button, ul, h1, h2, h3, h4 {
+  margin: 0;
+}
+
+/* //MARK: Typography */
+
+@font-face {
+  font-family: 'RobotoRegular';
+  src: url('../fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'RobotoMedium';
+  src: url('../fonts/Roboto-Medium.ttf');
+}
+
+html, h1, h2, h3, h4 {
+  font-weight: 400;
+}
+
+html, input, button, h1, h2, h3, h4 { /*grouping a de meilleures perfs que duplicating */
+  font-size: 14px;
+}
+
+html, input, button {
+  font-family: RobotoRegular, Arial, sans-serif;
+}
+
+button:not(.btn-category), td {
+  font-family: RobotoMedium, Arial, sans-serif;
+}
+
+p {
+  line-height: 21px;
+}
+
+td h3 {
+  font-weight: 500;
+}
+
+a {
+  text-decoration: none;
+}
+
+header a {
+  color: inherit;
+  outline: none;
+}
+
+p a, table a {
+  color: #3997e8;
+}
+
+h2, h4 {
+  color: var(--lightgray);
+}
+
+/* //MARK: Typography - Element */
+
+.ff-RM {
+  font-family: RobotoMedium, Arial, sans-serif;
+}
+
+.fs-10 {
+  font-size: 10px;
+}
+
+.fs-12 {
+  font-size: 12px;
+}
+
+.fs-13 {
+  font-size: 13px;
+}
+
+.fs-16 {
+  font-size: 16px;
+}
+
+.fs-18 {
+  font-size: 18px;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.lh-16 {
+  line-height: 16px;
+}
+
+.lh-18 {
+  line-height: 18px;
+}
+
+.lh-20 {
+  line-height: 20px;
+}
+
+.lh-24 {
+  line-height: 24px;
+}
+
+.lh-26 {
+  line-height: 26px;
+}
+
+.text-secondary {
+  color: var(--lightgray);
+}
+
+.text-black {
+  color: #030303;
+}
+
+.mr-4 {
+  margin-right: 4px;
+}
+
+.mr-8 {
+  margin-right: 8px;
+}
+
+.mt-8 {
+  margin-top: 8px;
+}
+
+.mb-8 {
+  margin-bottom: 8px;
+}
+
+.ml-16 {
+  margin-left: 16px;
+}
+
+.py-4 {
+  padding: 0 4px;
+}
+
+/* //MARK: Other */
+
+.logo-box li, .logo-box button, .comments-model__nav button {
+  font-size: 0;
+}
+
+
+
+/* //MARK: II. Header */
+
+/* //MARK: Reset & General */
+
+input, form {
+  min-width: 0;
+}
+
+/* //MARK: Display */
+
+.main-header, .logo-box, .main-header__nav, .main-header__nav__account-circle {
+  display: flex;
+  align-items: center;
+}
+
+.main-header {
+  justify-content: space-between;
+}
+
+.main-header {
+  height: 56px;
+  padding: 0px 16px;
+}
+
+.toggle--always-hidden {
+  display: none;
+}
+
+.header--sticky {
+  position: fixed;
+  width: 100%;
+  z-index: 100; /* La Vidéo a un z-index < 100 */
+}
+
+/* //MARK: Header - Logo & Hamburger menu */
+
+.logo-box {
+  width: 185px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 875px) {
+  .logo-box {
+    width: min-content;
+  }
+}
+
+.logo-box__menu-hamburger {
+  margin: 8px 24px 8px 8px;
+}
+
+.logo-box__logo {
+  width: 80px; /*20px de plus parce que 2*10px d'espace au sein de l'image*/
+  height: 24px;
+}
+
+.logo-box__country-code {
+  height: 24px;
+  margin-left: 2px;
+}
+
+/* //MARK: Header - Search Bar */
+
+.search-box {
+  display: flex;
+  flex-basis: 728px;
+  flex-grow: 0;
+}
+
+.search-bar {
+  margin-left: 40px;
+  
+  padding: 0 4px;
+
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.search-bar__input {
+  background-color: hsl(0, 0%, 7%);
+  color: hsla(0, 100%, 100%, 0.88);
+
+  width: 0;
+  flex-basis: 557px;
+  flex-grow: 1;
+  padding: 3px 6px 3px 11px;
+  
+  border: 1px solid #303030;
+  border-right: none;
+  border-radius: 2px 0 0 2px;
+}
+
+#search-bar__button {
+  min-width: 65px;
+  height: 32px;
+  padding: 3px 8px 3px 8px;
+  border-radius: 0 2px 2px 0;
+  border: 1px solid #303030;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+#search-bar__button img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  opacity: .6;
+}
+
+.search-box__micro {
+  width: 20px;
+  height: 20px;
+  margin: 8px 10px 4px 10px;
+}
+
+#search-bar__button:hover img {
+  opacity: 1;
+}
+
+/* //MARK: Search-bar Hack to show/hide it */
+
+/* //MARK: Search-bar Hack Display */
+
+#toggle, .for-mobile {
+  display: none;
+}
+
+#toggle:checked ~ .for-desktop {
+  display: none;
+}
+
+#toggle:checked ~ .for-mobile {
+  display: flex;
+}
+
+@media (min-width: 657px) {
+  #toggle:checked ~ .for-desktop {
+    display: flex;
+  }
+  
+  #toggle:checked ~ .for-mobile {
+    display: none;
+  }
+}
+
+/* //MARK: Search-bar Hack Margins */
+
+.main-header.for-mobile {
+  padding: 0px 8px;
+}
+
+.for-mobile .search-bar {
+  margin-left: 0;
+}
+
+.search-box__toggle {
+  padding: 4px;
+}
+
+.search-box__left-arrow {
+  width: 20px;
+  height: 24px;
+  margin: 8px 12px 8px 8px;
+}
+
+/* //MARK: Header - Navbar */
+
+.main-header__nav {
+  justify-content: flex-end;
+  min-width: 225px;
+}
+
+.main-header__nav__item {
+  display: block;
+  height: 40px;
+  padding: 8px;
+  margin-right: 8px;
+  box-sizing: border-box;
+}
+
+.search-box__toggle {
+  display: none;
+}
+
+.main-header__nav img {
+  height: 24px;
+  width: 24px;
+}
+
+.main-header__nav__account-circle {
+  border: 1px solid #3ea6ff;
+  color: #3ea6ff;
+  padding: 5px 11px 5px 9px;
+}
+
+.main-header__nav__account-circle img {
+  margin-right: 6px;
+  width: 28px;
+  height: 28px;
+}
+
+.main-header__nav__account-circle span {
+  min-width: max-content;
+}
+
+/* //MARK: Search-bar for mobile */
+
+.for-mobile .search-bar {
+  flex-grow: 1;
+}
+
+@media (max-width: 656px) {
+  .main-header {
+    padding: 0px 8px;
+  }
+
+  .logo-box__menu-hamburger {
+    margin: 8px 12px 8px 8px;
+  }
+
+  .search-box, .logo-box {
+    margin: 0;
+  }
+
+  .for-desktop .search-bar {
+    display: none;
+  }
+
+  .for-desktop .search-box {
+    justify-content: flex-end;
+  }
+
+  form {
+    min-width: 0;
+    min-height: 0;
+  }
+
+  .search-box__toggle {
+    display: block;
+  }
+
+  .main-header__nav {
+    justify-content: flex-start;
+  }
+
+  .main-header__nav, .main-header__nav__item {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 428px) {
+  .for-desktop .search-box {
+    display: none;
+  }
+}
+
+/* //MARK: III. Article (Container for Video, Channel, and Comments) */
+
+/* //MARK: Article, Sizing and Display */
+
+main {
+  margin-left: 24px;
+}
+
+.main-article {
+  padding-top: 56px;
+  max-width: 1429px; 
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.section-video, .other-videos {
+  box-sizing: border-box;
+  padding: 24px 24px 0 0;
+}
+
+.section-video {
+  min-width: 444.667px;
+  flex-basis: 664px;
+  flex-grow: 3;
+}
+
+ .other-videos {
+  overflow-x: scroll;
+  flex-basis: 312px;
+  flex-shrink: 1;
+  flex-grow: 1;
+  /*Avant dernier changement, au cas où
+  flex-basis: 402px;
+  min-width: 360px;
+  */
+}
+
+/* //MARK: Video */
+
+/* //MARK: Video : Iframe with 16"9 ratio (border-top trick) */ 
+
+.iframe-container {
+  position: relative;
+  padding-top: 56.25%;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+} 
+
+/* //MARK: Header Video */
+
+.header-video {
+  padding-top: 20px;
+}
+
+.header-video h1 {
+  margin-bottom: 10px;
+}
+
+/* //MARK: Navbar display */
+
+.header-video section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-video nav {
+  display: flex;
+}
+
+.header-video a, .header-video p {
+  display: flex;
+  align-items: center;
+}
+
+/* //MARK: Navbar Padding & Margins */
+
+.header-video .header-video__thumbs {
+  border-bottom: 2px solid var(--lightgray);
+}
+
+.header-video li {
+  padding-left: 8px;
+}
+
+.header-video p, .header-video li {
+  padding-bottom: 12px;
+}
+
+.header-video li:not(.no-left-margin) {
+  margin-left: 8px;  
+}
+
+.header-video img {
+  height: 20px;
+  padding-right: 8px;
+}
+
+.header-video__views-date-v2--dot {
+  padding: 0 4px;
+}
+
+/* //MARK: header-video__views-date */
+
+.header-video__views-date {
+  overflow: hidden;
+  max-height: 18px;
+  min-width: 0;
+  padding-top: 1px;
+}
+
+.header-video__views-date__date {
+  display: inline-block;
+}
+
+.header-video__views-date-v2 {
+  display: none;
+}
+
+@media (min-width: 601px) {
+  .header-video__views-date-v1 {
+    display: none;
+  }
+  .header-video__views-date-v2 {
+    display: inline;
+  }
+}
+
+/* //MARK: Channel Section */
+
+.channel, .channel__logo-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.channel {
+  margin: 16px 0 12px 0;
+}
+
+.channel__logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+/* //MARK: Channel Typographye */
+
+.channel button{
+  height: min-content;
+
+  padding: 10px 16px;
+  background-color: #cc0000;
+  border-radius: 2px;
+}
+
+/* //MARK: Video Info */
+
+.video-info-and-channel {
+  border-bottom: 1px solid #303030;
+  border-top: 1px solid #303030;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+.video-info {
+  max-width: 615px;
+  padding-left: 64px;
+}
+
+/* //MARK: Video Info Hack to show it extended or reduced */
+
+.video-info-extended {
+  display: none;
+}
+
+#toggle-video-info:checked ~ .video-info-reduced {
+  display: none;
+}
+
+#toggle-video-info:checked ~ .video-info-extended {
+  display: block;
+}
+
+/* //MARK: Video Info - Music */
+
+.video-info__music {
+  border-top: 1px solid rgba(255, 255,255, .1);
+}
+
+.video-info__music ul {
+  display: block;
+}
+
+.video-info__music header h3 {
+  margin-top: 8px;
+}
+
+.video-info__music__info h2 {
+  text-align: left;
+}
+
+.video-info__music h3 {
+  line-height: 21px;
+}
+
+th {
+  width: 110px;
+  padding-right: 16px;
+}
+
+td {
+  min-width: 236.667px;
+}
+
+table {
+  border-spacing: 0 8px;
+}
+
+/* //MARK: Comments */
+
+.comments-header__title {
+  margin-right: 32px;
+}
+
+.comments-header__subtitle {
+  color: var(--lightgray);
+  margin-left: 8px;
+}
+
+.comments-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+/* //MARK: Comment - Form to send a comment */
+
+.comments-avatar {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 16px;
+}
+
+.comments-form {
+  display: flex;
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.comments-form__form {
+  width: 100%;
+}
+
+.comments-form__form__input {
+  width: 100%;
+  height: 21px;
+  background-color: var(--main-gray);
+  border: none;
+}
+
+.comments-form__form__input::placeholder {
+  color: hsla(0, 100%, 100%, 1);
+}
+
+.comments-form__form__input:focus {
+  outline: none;
+}
+
+.comments-form__form__border, .comments-form__form__border_2 {
+  height: 1px;
+
+  background-position: 50% 100%;
+  background-size: 0% 2px !important; 
+  background-repeat: no-repeat !important;
+  background-image: linear-gradient(black, black) !important;
+}
+
+.comments-form__form__border {
+  margin-bottom: 8px;
+  background-color: #717171;
+}
+
+.comments-form__form__border_2 {
+  margin-top: 3px;
+  background-color: var(--main-gray);
+}
+
+.comments-form__form__input:focus ~ .comments-form__form__border,
+.comments-form__form__input:focus ~ .comments-form__form__border_2 {
+  transition: background-size .2s;
+  background-size: 100% 1px !important;
+}
+
+.comments-form__form__buttons button {
+  height: min-content;
+  padding: 10px 16px;
+  border-radius: 2px;
+}
+
+.comments-form__form__buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.comments-form__form__buttons--submit {
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #606060;
+}
+
+/* //MARK: Comment - Comment Model */
+
+.comments-model {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.comments-model h1, .comments-model h2 {
+  display: inline-block;
+}
+
+.comments-model p {
+  margin-top: 2px;
+  line-height: 20px;
+}
+
+.comments-model__nav {
+  display: flex;
+  align-items: center;  
+}
+
+.comments-model__thumb {
+  width: 16px;
+  height: 16px;
+  margin: 8px;
+}
+
+/* //MARK: IV.Other Videos */
+
+/* //MARK: Other Videos : Category Bar */
+
+.other-videos__category-bar {
+  min-width: 0;
+  padding-bottom: 16px;
+  margin-bottom: 4px;
+  display: flex;
+  overflow-x: scroll;
+}
+
+.btn-category {
+  display: inline-block;
+  background-color: #303030;
+  border: 1px solid #454545;
+  border-radius: 16px;
+  min-width: max-content;
+  padding: 0 12px;
+  margin: 8px 8px 0 8px;
+  height: 32px;
+}
+
+/* //MARK: Other Videos : Model */
+
+.other-videos-model {
+  display: flex;
+}
+
+.others-videos-model__header {
+  max-height: 32px; 
+  overflow: hidden;
+}
+
+/* Ici flex-basis sert de taille minimale, flex-grow fait que les éléments remplissent l'espace, et le meme flex-grow fait que les éléments remplissent l'espace dans les memes proportions. */
+/* Dans le cas d'un rétrécissement de la fenetre, les 2 éléments vont rétrécir jusqu'à leur taille minimale, puis si on continue de rétrécir, l'élément à droite va aller sur une nouvelle ligne parce qu'il y a wrap. */
+/* Chacun sur une ligne, chaque élément va remplir la ligne parce qu'il y a flex-grow. */
+
+/* Taille minimum aside de 324px, taille max en 2 col 426px, taille max 100%
+Taille minimum section 664px, taille max 2 col 877.33px, taille max 100% */
+
+
+
+
+/* TODO LIST */
+
+/*
+CORRECTEDTODO: Pourquoi firefox affiche pas la vidéo ? --> C'était l'affaire d'une fois
+NOTTODO: Mettre les alt aux images 
+NOTTODO: Ajouter les détails pour les liens de la nav en-dessous la vidéo (nav a)
+DONETODO: Est-ce que la font-family pour les titre est différentes de celles pour le reste de la page ? 
+DONETODO: Rendre le main-header responsive 
+DONETODO: Ma search-bar pour les mobiles elle a un text en
+DONETODO: Changer la couleur des hr
+DONETODO: Rendre le boutton suscribe cliquable 
+
+DONETODO .main-header
+  DONETODO : main-header : Le micro disparait, une min-width de 0 suffirait ?
+  DONETODO: Sur Youtube ils ont caché le texte pour les vues et la date sans media query apparemment juste avec un overflow hidden ?
+  DONETODO: Regarder si j'ai eu recours à de mauvaises pratiques dans mon css à patir de /Typography de https://www.freecodecamp.org/news/css-rules-to-live-by-962a051e1eb2/ 
+  DONETODO: Atomic class ? Est-ce que ça un réel avantage ? Niveau performance est-ce que c'est pareil que de regrouper plusieurs classes qui partagent une meme propriété ? Est-ce que ça a un avantage pratique pour un cout en performance ? Ou pas de changement de performance et un avantage pratique ?
+  NOTTODO: la search-bar en focus, son outline-right est caché par le button
+DONETODO: vers 490px j'ai un blanc à droite, c'est en rapport avec les marges de l'iframe
+DONETODO: Vérifier le hr à l'intérieur du texte dans video-info
+NOTTODO (javascript) : Voir les borders des bouttons en active (selectionner avec tabs)
+DONETODO: Changer tous les liens qui ne dirigent pas vers une autre page en boutton
+DONETODO: Changer les headings : supprimer leurs propriétés dans le css et utiliser des éléments de typo
+DONETODO: Changer les propriétes des <p> avec des éléments de typo (dans des spans au lieu des p pour styliser le texte ?)
+DONETODO: Remplacer tous les <a> qui ne sont pas des liens vers d'autres pages mais qui devraient etre des boutons qui auraient un effet avec javascrpt. Normalement je devrais avoir cursor: pointer une seule fois dans mon css.
+DONETODO: Remplacer les margins dans du texte (genre le dot) par des paddings (normalement pas de margins dans un span, donc pas de margins dans du inline)
+DONETODO: section-video flex-grow 6 ?
+DONETODO: Ajustement taille search_bar et video ?
+DONETODO: Voir si je peux faire que les videos passent en 2eme position quand c'est en mono-colonne
+DONETODO: Ça passe en mono-colonne autour de 1000px alors que ça devrait etre autour de 800px
+DONETODO: Navbar sticky et overflow:hiden quand c'est trop petit (par ex 338px)
+
+DONETODO: Faire la recherche sur la meilleure pratique pour la typo : typography element modular vs grouping css
+DONETODO: Mettre  par défaut et retirer tous les fw-400, parel pour ff-RR
+DONETODO: Ajouter un commentaire color: black, à mettre dans le bon gris
+DONETODO: En 372px, le 502K il a pas la meme font-size/weight que le reste de sa ligne
+
+*/
+
+/* Peut-etre plus tard : Accessibilité */
+
+/*
+TODO: Les alt des buttons ?
+*/
+
+/* Plus tard: Avec Javascript */
+
+/*
+TODO: Changer la search-bar du main-header en-dessous de 659px inclu
+*/
+
+/* Comment les autres ont fait la bordure du thumbs, pour que le thumb et les autres elements de la cette section (en flex) restent alignés ? */
